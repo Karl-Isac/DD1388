@@ -1,0 +1,37 @@
+//
+// DD1388 - Lab 4: Losing Chess
+//
+
+#include "ChessBoard.h"
+#include "ChessPiece.h"
+#include <iostream>
+#include <vector>
+#include <sstream>
+#include <string>
+using std::vector; using std::stringstream; using std::cout; using std::endl;
+
+// Implement additional functions or classes of your choice
+
+int main() {
+    ChessBoard chess;
+    stringstream s;
+    s << ".ppp...." << endl;
+    s << ".pKp...." << endl;
+    s << ".ppp...." << endl;
+    s << "........" << endl;
+    s << "........" << endl;
+    s << "........" << endl;
+    s << "........" << endl;
+    s << "........";
+    s >> chess;
+    cout << chess;
+    cout << "#black: " << chess.blackPieces().size() << endl;
+    cout << "#black: " << chess.m_black_pieces.size() << endl;
+    cout << "#white: " << chess.whitePieces().size() << endl;
+    vector<ChessMove> W = chess.capturingMoves(true);
+    vector<ChessMove> B = chess.capturingMoves(false);
+
+    cout << "White capturing moves: " << W.size() << endl;
+    cout << "Black capturing moves: " << B.size() << endl;
+    return 0;
+}
